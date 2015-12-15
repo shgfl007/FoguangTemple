@@ -40,5 +40,10 @@ input, textarea  {
 body {
     /* margin: 0.5rem ; */
     background: #22242f ;
-    color: black ;
+    color: azure;
+}
+
+.Start_title {
+    color: azure;
+    text-align: center;
 }
