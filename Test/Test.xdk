@@ -6,7 +6,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-ad-project/sample.zip",
       "projectGuid": "8fb0f797-2095-490a-9fca-5315be00a4bc",
-      "lastModifiedDate": 1450153090200,
+      "lastModifiedDate": 1450241633213,
       "creationDate": 1450153089286
     },
     "XDK-app-designer": "true",
@@ -97,7 +97,7 @@
         "addlPermissions_": "",
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "5.1.1",
-        "crosswalkVersion_": "14",
+        "crosswalkVersion_": "15",
         "appVersion_": "0.0.1",
         "appAuthor_": "Intel XDK",
         "appDescription_": "Template to develop a Cordova mobile web app using the App Designer UI editor.",

@@ -6588,3 +6588,8 @@ body:not(#afui) .upage-outer {
 .tabs .d-margins {
   margin: 0;
 }
+@media all {
+  .Header_Icon {
+    font-size: 50 px;
+  }
+}
