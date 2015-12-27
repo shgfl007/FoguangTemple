@@ -23,3 +23,11 @@
 
 
 // ...additional event handlers here...
+$(document).ready(function{
+    comfirm("can you see this?");
+                  
+    if(($("#scene_1").hasClass("hidden"))===false){
+        alert("new page");
+    }              
+                  
+});

@@ -6593,3 +6593,57 @@ body:not(#afui) .upage-outer {
     font-size: 50 px;
   }
 }
+@media all {
+  .bar-bg {
+    background-color: rgba(220, 77, 2, 0.38);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+  }
+}
+@media all {
+  .thumb-bg > .sidebar-thumb {
+    background-image: url('../sidebar/css/images/gripper.png');
+  }
+  .thumb-bg > .sidebar-thumb {
+    background-color: ;
+  }
+  .thumb-bg > .sidebar-thumb:hover,
+  .thumb-bg > .sidebar-thumb:active {
+    background-color: #eeeeee;
+  }
+}
+@media all {
+  .bar-gutter .sidebar-content > .grid-pad {
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+@media all {
+  .Start_button_width {
+    -webkit-flex: 1 1 auto !important;
+    -moz-flex: 1 1 auto !important;
+    -ms-flex: 1 1 auto !important;
+    -o-flex: 1 1 auto !important;
+    flex: 1 1 auto !important;
+    width: 10%;
+    max-width: 250px;
+  }
+}
+@media all {
+  .Start_Button_Round {
+    height: 60px   !important;
+    width: 60px   !important;
+    border-radius: 100%  100% 100% 100%  100% 100% 100% !important;
+    text-align: center;
+  }
+}
+.button_position {
+  align-self: center;
+  top: 50%;
+  left: 40%;
+}
+figure.widget audio {
+  width: 100%;
+}

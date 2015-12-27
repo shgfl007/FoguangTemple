@@ -5,6 +5,8 @@
   -->
 
     <head>
+        <link rel="stylesheet" type="text/css" href="icon-fonts/font-awesome-4.3.0/css/font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="icon-fonts/elusive-icons-2.0.0/css/elusive-icons.css">
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="ionic/css/ionic.min.css">
         <title>Welcome to Foguang Temple!</title>
@@ -67,6 +69,11 @@
         <script type="application/javascript" src="js/index_init_services.js"></script>
         <script type="application/javascript" src="js/index_user_scripts.js"></script>
         <script type="application/javascript" src="xdk/ad/ionic_subpage.js"></script>
+        <script type="application/javascript" src="sidebar/js/hammer.js"></script>
+        <script type="application/javascript" src="sidebar/js/jquery.hammer.js"></script>
+        <script type="application/javascript" src="sidebar/js/swipe-hammer.js"></script>
+        <script type="application/javascript" src="sidebar/js/sidebar.js"></script>
+
     </head>
 
     <body ng-app="myApp">
@@ -75,15 +82,19 @@
         <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
         <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
         <div class="upage" id="mainpage">
-            <video autoplay loop poster="img/DJI_0028.JPG" id="bgvid">
+            <video autoplay="" loop="" poster="img/DJI_0028.JPG" id="bgvid">
                 <source src="videos/start_vid_small.mp4" type="video/mp4">
-            </video> 
+            </video>
+            <audio id="audio0"> 
+<!--                add back autoplay!-->
+                <source src="media/scene1/audio/0.ogg" type="audio/ogg">
+            </audio>
             <div class="upage-outer fixed-header-footer">
                 <div class="upage-content ac0 content-area vertical-col left" id="page_44_91">
                     <div class="card_grid widget uib_w_2 wrapping-col flex-basis-2 d-margins" data-uib="layout/card_grid" data-ver="0">
                         <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_3 section-dimension-3" data-uib="layout/card" data-ver="0"></div>
                         <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_4 section-dimension-4" data-uib="layout/card" data-ver="0"></div>
-                        <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_5 section-dimension-5" data-uib="layout/card" data-ver="0"></div>
+                        <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_5 section-dimension-5 start_button_position" data-uib="layout/card" data-ver="0"></div>
 
                     </div>
                     <div class="card_grid widget uib_w_6 wrapping-col d-margins flex-basis-6" data-uib="layout/card_grid" data-ver="0">
@@ -102,7 +113,7 @@
                     <div class="card_grid widget uib_w_10 wrapping-col d-margins flex-basis-10" data-uib="layout/card_grid" data-ver="0">
                         <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_11 section-dimension-11" data-uib="layout/card" data-ver="0"></div>
                         <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_12 section-dimension-12" data-uib="layout/card" data-ver="0">
-                            <button class="button widget uib_w_28 d-margins start_button_icon button-large button-assertive ion ion-arrow-right-b icon-only" data-uib="ionic/button" data-ver="0"></button>
+                            <button class="button widget uib_w_28 d-margins start_button_icon button_position Start_Button_Round button-large button-assertive ion ion-arrow-right-b icon-only" data-uib="ionic/button" data-ver="0"></button>
                         </div>
                         <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_13 section-dimension-13" data-uib="layout/card" data-ver="0"></div>
                     </div>
@@ -124,17 +135,108 @@
                 </div>
                 <ion-header-bar class="bar inner-element uib_w_1 bar-assertive bar-header" data-uib="ionic/header" data-ver="0" align-title="center">
                     <div class="buttons widget-container content-area horiz-area wrapping-col">
-                        <button class="button widget uib_w_29 d-margins ion ion-drag icon-only Header_Icon" data-uib="ionic/button" data-ver="0"></button>
+                        <button class="button widget uib_w_29 d-margins Header_Icon ion ion-drag icon-only" data-uib="ionic/button" data-ver="0"></button>
                     </div>
                     <h1 class="title">         </h1>
                     <div class="buttons widget-container content-area horiz-area wrapping-col">
                         <button class="button widget uib_w_30 d-margins Header_Icon ion ion-android-add icon-only" data-uib="ionic/button" data-ver="0"></button>
                     </div>
                 </ion-header-bar>
-                
+
             </div>
         </div>
-        <div class="upage vertical-col left hidden" id="scene_1"></div>
+        <div class="upage hidden" id="scene_1">
+
+            <div class="upage-outer">
+
+                <div class="upage-content ac0 content-area vertical-col" id="page_68_85">
+                    <figure class="margin-auto widget uib_w_34 d-margins" data-uib="media/audio" data-ver="1">
+                        <audio id="bgm1">
+                            <source src="media/scene1/bgm/001.mp3" type="audio/mpeg">
+                            <source src="media/scene1/bgm/001.wav" type="audio/wav">
+                            <source src="media/scene1/bgm/001.ogg" type="audio/ogg">
+                        </audio>
+                    </figure>
+                    
+                    <figure class="margin-auto widget uib_w_34 d-margins" data-uib="media/audio" data-ver="1">
+                        <audio controls="controls" id="audio1">
+                            <source src="my/audio/src.mp3" type="audio/mpeg">
+                                <source src="my/audio/src.ogg" type="audio/ogg">
+                                    <source src="media/scene1/audio/1.wav" type="audio/wav">
+                        </audio>
+                        
+                
+                    </figure>
+                    <figure class="margin-auto widget uib_w_34 d-margins" data-uib="media/audio" data-ver="1">
+                        <audio controls="controls" id="audio2">
+                            <source src="media/scene1/audio/2.mp3" type="audio/mpeg">
+                            <source src="media/scene1/audio/2.wav" type="audio/wav">
+                            
+                        </audio>
+                    </figure>
+                    <figure class="margin-auto widget uib_w_34 d-margins" data-uib="media/audio" data-ver="1">
+                        <audio controls="controls" id="audio3">
+                            <source src="media/scene1/audio/3.mp3" type="audio/mpeg">
+                            <source src="media/scene1/audio/3.wav" type="audio/wav">
+                            <source src="media/scene1/audio/3.ogg" type="audio/ogg">
+                        </audio>
+                    </figure>
+                    <figure class="margin-auto widget uib_w_34 d-margins" data-uib="media/audio" data-ver="1">
+                        <audio controls="controls" id="audio4">
+                            <source src="media/scene1/audio/4.mp3" type="audio/mpeg">
+                            <source src="media/scene1/audio/4.wav" type="audio/wav">
+                            <source src="media/scene1/audio/4.ogg" type="audio/ogg">
+                        </audio>
+                    </figure>
+                    <figure class="margin-auto widget uib_w_34 d-margins" data-uib="media/audio" data-ver="1">
+                        <audio controls="controls" id="audio5">
+                            <source src="media/scene1/audio/5.mp3" type="audio/mpeg">
+                            <source src="media/scene1/audio/5.wav" type="audio/wav">
+                            <source src="media/scene1/audio/5.ogg" type="audio/ogg">
+                        </audio>
+                    </figure>
+                </div>
+                <ion-header-bar class="bar inner-element uib_w_31 bar-assertive bar-header" data-uib="ionic/header" data-ver="0" align-title="center" id="scene_1_header">
+                    <div class="buttons widget-container content-area horiz-area wrapping-col">
+                        <button id="menu_button" class="button widget uib_w_32 d-margins ion ion-drag icon-only" data-uib="ionic/button" data-ver="0"></button>
+                    </div>
+                    <h1 class="title"></h1>
+                    <div class="buttons widget-container content-area horiz-area wrapping-col"></div>
+                </ion-header-bar>
+
+                <div class="inner-element uib_w_35 uib_sidebar leftbar bar-bg thumb-bg bar-gutter" data-uib="layout/left_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':200, 'side':'left', 'dur':200}" id="side_menu">
+                    <div class="sidebar-content content-area vertical-col">
+                        <ol>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li>
+                                <div align="right">
+                                    <button id="sidebar_button" class="button widget uib_w_32 d-margins button-dark ion ion-android-close icon-only" data-uib="ionic/button" data-ver="0"></button>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <script src="js/audioControl.js">
+            //load audio file and play it one after each other
+//            var audio1 = document.getElementById("audio1");
+//            var audio2 = document.getElementById("audio2");
+//            var audio3 = document.getElementById("audio3");
+//            audio1.onended = function(){
+//                //confirm("do you want to continue?");
+//                
+//                audio2.play();
+//            };
+//            
+//            audio2.onended = function(){
+//                audio3.play();
+//            };
+
+        </script>
     </body>
 
 </html>
