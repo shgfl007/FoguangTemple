@@ -1,0 +1,21 @@
+.timeline-page{
+  width:auto;
+  overflow-x: visible;
+}
+.timeline-list{
+margin-left: 150px;
+}
+.timeline-each {
+  width:300px;
+  height:100vh;
+  background-color: rgba(255,255,255,0.2);
+  margin:0px 50px auto 50px;
+  padding:50px;
+}
+
+.timeline-each::before{
+}
+.time-img{
+  max-width: 100%;
+  height:auto;
+}

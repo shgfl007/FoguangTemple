@@ -1,0 +1,20 @@
+//page layout
+@import '_page-layout.scss';
+@import '_ng-scrollable.scss';
+
+//introduction video
+@import '_video.scss';
+
+//chapters layout
+@import '_timeline';
+@import '_chapter-scroll';
+
+//animation
+@import '_animation.scss';
+@import '_svg-sunrise.scss';
+
+//responsive
+@import '_responsive.scss';
+
+//bootstrap (external style)
+@import '_modal.scss'

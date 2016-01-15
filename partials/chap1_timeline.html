@@ -1,0 +1,24 @@
+
+<section class="timeline-page">
+  <div class ="scene-title">
+    <div class ="scene-title-box">
+      <h3>第一章</h3>
+      <h1 class="scene-title-lgword">佛光寺時間史</h1>
+  </div>
+  </div>
+  <ul class="timeline-list">
+    <li class="timeline-each hori-scroll hideme" ng-repeat="item in events | orderBy: date">
+      <a href="#/details/{{events.indexOf(item)}}">
+        <h2>{{item.title}}</h2>
+        <h3>{{item.era}}</h3>
+        <p>{{item.description | limitTo:letterLimit}}</p>
+      </a>
+    </li>
+  </ul>
+  <audio autoplay="" controls="" loop="" preload="">
+    <source src="media/scene1/bgm/001.mp3" type="audio/mpeg">
+    <source src="media/scene1/bgm/001.ogg" type="audio/ogg">
+    <source src="media/scene1/bgm/001.wav" type="audio/wav">
+   Your browser does not support the audio element.
+  </audio>
+</section>
