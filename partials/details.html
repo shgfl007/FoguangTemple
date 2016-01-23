@@ -1,11 +1,13 @@
-<section>
-  <div class="details" ng-model="events">
-    <a href="#/details/{{prevItem}}" class="btn btn-default">Previous</a>
-    <a href="#/details/{{nextItem}}" class="btn btn-default">Next </a>
-    <br>
+<div class="modal-header">
+  <a href="#/details/{{prevItem}}" class="btn btn-default">Previous</a>
+  <h1>{{events[whichItem].title}}</h1>
+  <a href="#/details/{{nextItem}}" class="btn btn-default">Next </a>
+</div>
 
-    <h1>{{events[whichItem].title}}</h1>
-    <audio autoplay="autoplay" controls="controls" class="audio1_1" ng-src=" {{events[whichItem].audio}}" onended="endaudio()">
+<section>
+  <div class="modal-body">
+  <div class="details" ng-model="events">
+    <audio autoplay="autoplay" controls="controls" class="audio1_1" ng-src="{{events[whichItem].audio}}" onended="endaudio()">
     </audio>
 
     <div audio options="options" />
@@ -14,9 +16,13 @@
         <p>{{events[whichItem].details }}</p>
       <img ng-src="img/{{events[whichItem].images[0]}}" alt="Photo of {{events[whichItem].title}}">
 
+      <!-- <video autoplay="autoplay" controls="controls" class="video1_1" ng-src=" {{events[whichItem].images}}">
+      </video> -->
 
   </div>
   <a href="#/chap2">&laquo; Back </a>
+
+</div>
 </div>
 </section>
 <script>

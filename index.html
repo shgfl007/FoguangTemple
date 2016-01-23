@@ -1,18 +1,14 @@
 <!doctype html>
-<html lang="en" ng-app="myApp">
+<html lang="en">
 <head>
   <link rel="stylesheet" type="text/css" href="app/css/main.css">
-
+<!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet"> -->
 <!---jquery link ---->
   <script src="lib/jquery.min.js"></script>
-  <script src="lib/velocity.min.js"></script>
-
+  <script src="lib/jquery.line.js"></script>
 <!--angular Link -->
   <script src="lib/angular/angular.min.js"></script>
-  <script src="lib/angular/angular-route.min.js"></script>
-
-<!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
-  <script src="lib/ng-scrollable.min.js"></script>
+  <script src="lib/angular/angular-ui-router.min.js"></script>
 
 <!--- bootstrap link ---->
 <script data-require="bootstrap@3.0.0-rc2" data-semver="3.0.0-rc2" src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/js/bootstrap.min.js"></script>
@@ -36,13 +32,18 @@
   </style>
 
   <!-- Latest compiled and minified CSS -->
+  <script type="text/ng-template" id="modalContainer">
+  </script>
+
+
 </head>
-<body>
+<body ng-app="myApp">
 <div ng-scrollable="{scrollX:'left',scrollY:'none'}" >
-<div class="main" ng-view>
+<div class="main" ui-view>
 
 </div>
 </div>
+
   <script src="dist/js/custom-jquery.js"></script>
 </body>
 </html>

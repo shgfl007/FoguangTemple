@@ -1,4 +1,3 @@
-
 <section class="timeline-page">
   <div class ="scene-title">
     <div class ="scene-title-box">
@@ -7,18 +6,34 @@
   </div>
   </div>
   <ul class="timeline-list">
-    <li class="timeline-each hori-scroll hideme" ng-repeat="item in events | orderBy: date">
-      <a href="#/details/{{events.indexOf(item)}}">
+    <div class ="timeline-line">
+        <div class="timeline-node" ng-repeat="item in events" style="margin-left:{{item.node}}px" ng-click="selectItem(item)" ng-class="{activenode:item.selected}"><p>{{item.date}}年</p></div>
+    </div>
+    <li class="timeline-each hori-scroll hideme" ng-repeat="item in events | orderBy: date" ng-click="selectItem(item)" ng-class="{activecard:item.selected}">
+      <!--href="#/details/{{events.indexOf(item)}}" -->
+      <div class="left-timeline">
         <h2>{{item.title}}</h2>
         <h3>{{item.era}}</h3>
         <p>{{item.description | limitTo:letterLimit}}</p>
-      </a>
+        <audio autoplay="autoplay" controls="controls" class="audio1_1" ng-src="media/{{item.audio}}" onended="endaudio()">
+        </audio>
+      </div>
+
+        <div class="timeline-cover">
+        <img class="timeline-img" ng-src="img/{{item.images[0]}}" alt="Photo of {{item.title}}">
+        </div>
+
     </li>
   </ul>
-  <audio autoplay="" controls="" loop="" preload="">
+  <audio autoplay="" controls="" loop="" preload="" class="background-mvc">
     <source src="media/scene1/bgm/001.mp3" type="audio/mpeg">
     <source src="media/scene1/bgm/001.ogg" type="audio/ogg">
     <source src="media/scene1/bgm/001.wav" type="audio/wav">
    Your browser does not support the audio element.
   </audio>
 </section>
+<!-- <script>
+$( ".timeline-line" ).click(function() {
+  $('.timeline-node').addClass("active");
+});
+</script> -->

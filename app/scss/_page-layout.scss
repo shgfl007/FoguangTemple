@@ -1,10 +1,11 @@
 //variables
 $color-red: #A10B00;
 $color-orange: #FF8500;
-$color-yellow: #F28500;
+$color-yellow: #F2B626;
 $color-blue: #7CD0FF;
 $color-black: #050505;
 $color-paper: #DED8D4;
+$color-grey:#606060;
 
 html {
   background-color: $color-paper;
@@ -41,6 +42,10 @@ display: inline-block;
 .black-bg{
      background-color: rgba(0, 0, 0, .4);
 }
+
+// .active {
+//   background-color: $color-orange;
+// }
 
 /* FONT PATH
  * -------------------------- */
@@ -154,16 +159,17 @@ button, btn {
 }
 
 .scene-title-box {
-  margin: 50% auto auto auto;
+  margin: auto auto auto auto;
   padding-top:5px;
   color:$color-paper;
-  background-color: rgba(0, 0, 0, .6);
+  background-color: $color-red;
+  opacity:0.8;
   top: 50%;
   left: 24%;
   width: auto;
   height: auto;
   max-width: 55%;
-  min-height: 95%;
+  min-height: 100%;
   text-align:center;
 }
 
@@ -172,4 +178,13 @@ button, btn {
     font-size: 2.5em;
     top: 50%;
     text-align:center;
+}
+
+.background-mvc{
+  opacity: 0.3;
+  width: 45px;
+  padding-left:20px;
+  position:absolute;
+  top:2vh;
+  left:100px;
 }

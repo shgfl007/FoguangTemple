@@ -1,41 +1,42 @@
 var myApp = angular.module('myApp', [
-  'ngRoute',
+  'ui.router',
   'timelineControllers'
 ]);
 
-myApp.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.
+myApp.config(function($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise('/home');
 
- //index page
-  when('/main', {
-    templateUrl: 'partials/chap0_main.html'
-  }).
+  $stateProvider
+  //tabs,dependent page
+  .state('tab', {
+    url: '/tab',
+    // abstract: true,
+    templateUrl: 'partials/tab.html',
+    controller:'tabcontrol'
+  })
 
-  //chapter 1 Intro
-  when('/intro', {
-    templateUrl: 'partials/chap1_intro.html'
-  }).
+  //main home page with video
+  .state('home',{
+    url:'/home',
+    templateUrl:'partials/chap0_main.html'
+  })
 
-  //chapter 1 timeine page
-  when('/timeline', {
-    templateUrl: 'partials/chap1_timeline.html',
-    controller: 'timelineController'
-  }).
+  //sunrise page
+  .state('intro',{
+    url:'/intro',
+    templateUrl:'partials/chap1_intro.html'
+  })
 
-  //chapter 2 scroll
-  when('/chap2', {
-    templateUrl: 'partials/chap2_scroll.html',
-    controller: 'Chap2Controller'
-  }).
+  //timeline page
+  .state('tab.timeline', {
+    url: '/timeline',
+        templateUrl: 'partials/chap1_timeline.html',
+        controller: 'timelineController'
+  })
 
-  //chapter 2 details
-when('/details/:itemId',{
-   templateUrl:'partials/details.html',
-   controller:'DetailsController'
- }).
-
-  //default page
-  otherwise({
-    redirectTo: '/main'
-  });
-}]);
+  .state('tab.chap2', {
+      url: '/chap2',
+          templateUrl: 'partials/chap2_scroll.html',
+          controller:'Chap2Controller'
+    })
+});
