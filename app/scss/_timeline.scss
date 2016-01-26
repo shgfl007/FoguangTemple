@@ -1,3 +1,4 @@
+
 .timeline-page{
   width:auto;
   overflow-x: visible;
@@ -26,7 +27,9 @@
   z-index: 1000;
 // box-shadow: inset 0 0 2em 2em rgba(255,255,255,.9);
 }
-
+.left-timeline{
+  margin-top: -20px;
+}
 .timeline-img{
   width: 80%;
   max-width: 80%;
@@ -80,15 +83,15 @@
 .all-active {
   border-color: $color-red !important;
   box-shadow: 2px 4px 10px #A5A5A5;
-  -webkit-transition: 0.9s; /* For Safari 3.1 to 6.0 */
-  transition: 0.9s;
+  -webkit-transition: 0.5s; /* For Safari 3.1 to 6.0 */
+  transition: 0.5s;
   opacity:1;
   img {
     opacity:1;
     -webkit-filter: grayscale(0%);
     filter: grayscale(0%);
-    -webkit-transition: 0.9s; /* For Safari 3.1 to 6.0 */
-    transition: 0.9s;
+    -webkit-transition: 0.5s; /* For Safari 3.1 to 6.0 */
+    transition: 0.5s;
     max-width: 100%;
     width:100%;
   }

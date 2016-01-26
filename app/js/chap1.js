@@ -22,10 +22,9 @@ timelineControllers.controller('timelineController', ['$scope', '$http', functio
             }
           }
 	     }
-
   var $node = $('.timeline-node');
   // var top = $node.position().top;
-  $('.scene-title-box').line(bottom + 20,140,200,400, {color:"red", style: "solid"});
+  // $('.scene-title-box').line(bottom + 20,140,200,400, {color:"red", style: "solid"});
   });
 }]);
 

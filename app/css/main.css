@@ -379,6 +379,9 @@ video#bgvid {
   background-image: url("../../img/layout/time-bg.png");
   z-index: 1000; }
 
+.left-timeline {
+  margin-top: -20px; }
+
 .timeline-img {
   width: 80%;
   max-width: 80%;
@@ -425,17 +428,17 @@ video#bgvid {
 .all-active, .activenode, .activecard {
   border-color: #A10B00 !important;
   box-shadow: 2px 4px 10px #A5A5A5;
-  -webkit-transition: 0.9s;
+  -webkit-transition: 0.5s;
   /* For Safari 3.1 to 6.0 */
-  transition: 0.9s;
+  transition: 0.5s;
   opacity: 1; }
   .all-active img, .activenode img, .activecard img {
     opacity: 1;
     -webkit-filter: grayscale(0%);
     filter: grayscale(0%);
-    -webkit-transition: 0.9s;
+    -webkit-transition: 0.5s;
     /* For Safari 3.1 to 6.0 */
-    transition: 0.9s;
+    transition: 0.5s;
     max-width: 100%;
     width: 100%; }
 
