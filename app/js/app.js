@@ -34,9 +34,17 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
         controller: 'timelineController'
   })
 
+//chapter 2
   .state('tab.chap2', {
-      url: '/chap2',
-          templateUrl: 'partials/chap2_scroll.html',
-          controller:'Chap2Controller'
-    })
+    url:'/chap2',
+        templateUrl:'partials/chap2_scroll.html',
+        controller:'Chap2Controller'
+
+  })
+
+  .state('tab.details', {
+        url: '/details/:aId',
+            templateUrl: 'partials/details.html',
+            controller:'DetailsController'
+      })
 });

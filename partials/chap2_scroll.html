@@ -1,4 +1,4 @@
-<section class="scroll-page page-content-wrapper">
+<section class="scroll-page">
   <div class ="scene-title">
     <div class ="scene-title-box">
       <h3>第二章</h3>
@@ -13,7 +13,7 @@
         <p>{{item.description | limitTo:letterLimit}}</p>
         <p>{{item.details | limitTo:letterLimit}} ...</p>
 
-      <a href="#/details/{{events.indexOf(item)}}">  <button type="button" class="btn btn-default" ng-click="open('lg')">Open me!</button></a>
+      <a href="#/tab/details/{{item.id}}"">  <button type="button" class="btn btn-default" ng-click="open('lg')">Open me!</button></a>
 
       <!-- <a href="#/details/{{events.indexOf(item)}}">  -->
         <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Full Content</button> -->

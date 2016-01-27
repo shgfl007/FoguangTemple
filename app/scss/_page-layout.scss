@@ -64,17 +64,11 @@ display: inline-block;
     url('../../source/font/yuweif.woff');
 }
 @font-face {
-  font-family: 'contentFont';
-  src: local('contentFont.woff'),
-  url('../../source/font/contentFont.woff') format('woff');
+  font-family: 'HanWangWCL06';
+  src: local('HanWangWCL06.woff'),
+  url('../../source/font/HanWangWCL06.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-}
-
-@font-face {
-   font-family: 'lightFont';
-   src: local('lightFont.ttf'),
-   url('../../source/font/lightFont.ttf') format('truetype');
 }
 
 @font-face {
@@ -87,8 +81,8 @@ h1, h2 {
   font-family: 'titleFont', Helvetica, Arial, sans-serif;
 }
 
-h3, h4, h5, p {
-  font-family: 'contentFont'，Helvetica, Arial, sans-serif;
+p{
+  font-family:'Arial',Helvetica;
 }
 
 h3, h4, h5 {
@@ -185,6 +179,6 @@ button, btn {
   width: 45px;
   padding-left:20px;
   position:absolute;
-  top:2vh;
+
   left:100px;
 }

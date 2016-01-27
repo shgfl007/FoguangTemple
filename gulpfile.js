@@ -13,7 +13,8 @@ var paths1 = {
         // 'app/js/bootstrap.min.js',
         // 'app/js/angular.min.js',
         'app/js/app.js',
-        'app/js/chap1.js'
+        'app/js/chap1.js',
+        'lib/jquery.line.js'
     ]
 };
 var paths2 = {

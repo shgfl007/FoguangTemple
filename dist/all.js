@@ -1,51 +1,45 @@
 var myApp = angular.module('myApp', [
-  'ionic',
-  'ngRoute',
+  'ui.router',
   'timelineControllers'
 ]);
 
-myApp.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.
+myApp.config(function($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise('/home');
 
- //index page
-  when('/tab',{
-    abstract:true,
-    templateUrl:'partials/tab.html',
-    controller: 'tabcontrol'
-  }).
+  $stateProvider
+  //tabs,dependent page
+  .state('tab', {
+    url: '/tab',
+    // abstract: true,
+    templateUrl: 'partials/tab.html',
+    controller:'tabcontrol'
+  })
 
-  when('/main', {
-    templateUrl: 'partials/chap0_main.html'
-  }).
+  //main home page with video
+  .state('home',{
+    url:'/home',
+    templateUrl:'partials/chap0_main.html'
+  })
 
-  //chapter 1 Intro
-  when('/intro', {
-    templateUrl: 'partials/chap1_intro.html'
-  }).
+  //sunrise page
+  .state('intro',{
+    url:'/intro',
+    templateUrl:'partials/chap1_intro.html'
+  })
 
-  //chapter 1 timeine page
-  when('/timeline', {
-    templateUrl: 'partials/chap1_timeline.html',
-    controller: 'timelineController'
-  }).
+  //timeline page
+  .state('tab.timeline', {
+    url: '/timeline',
+        templateUrl: 'partials/chap1_timeline.html',
+        controller: 'timelineController'
+  })
 
-  //chapter 2 scroll
-  when('/chap2', {
-    templateUrl: 'partials/chap2_scroll.html',
-    controller: 'Chap2Controller'
-  }).
-
-  //chapter 2 details
-when('/details/:itemId',{
-   templateUrl:'partials/details.html',
-   controller:'DetailsController'
- }).
-
-  //default page
-  otherwise({
-    redirectTo: '/main'
-  });
-}]);
+  .state('tab.chap2', {
+      url: '/chap2',
+          templateUrl: 'partials/chap2_scroll.html',
+          controller:'Chap2Controller'
+    })
+});
 
 var timelineControllers = angular.module('timelineControllers', []);
 
@@ -54,7 +48,26 @@ timelineControllers.controller('timelineController', ['$scope', '$http', functio
   $http.get('source/timeline.json').success(function(data) {
     $scope.events = data;
     $scope.letterLimit = 80;
-    document.body.style.width = '3400px';
+    document.body.style.width = '3500px';
+
+//select function for node and timeline-each
+    $scope.selectItem = function(selectedItem){
+    	for(var i = 0; i < $scope.events.length; i++){
+            var item = $scope.events[i];
+            if(item.id == selectedItem.id){
+                item.selected = !item.selected;
+                document.body.style.width = '4000px';
+                $scope.letterLimit = 1000;
+            }else {
+                item.selected = false;
+                document.body.style.width = '3500px';
+                $scope.letterLimit = 80;
+            }
+          }
+	     }
+  var $node = $('.timeline-node');
+  // var top = $node.position().top;
+  // $('.scene-title-box').line(bottom + 20,140,200,400, {color:"red", style: "solid"});
   });
 }]);
 
@@ -65,26 +78,6 @@ timelineControllers.controller('Chap2Controller', ['$scope', '$http', function($
     $scope.letterLimit = 100;
     $scope.animationsEnabled = true;
     document.body.style.width = '7700px';
-
-    $scope.open = function (size) {
-  var modalInstance = $uibModal.open({
-    animation: $scope.animationsEnabled,
-    templateUrl: 'myModalContent.html',
-    controller: 'ModalInstanceCtrl',
-    size: size,
-    resolve: {
-      events: function () {
-        return $scope.events;
-      }
-    }
-  });
-
-  modalInstance.result.then(function (selectedItem) {
-    $scope.selected = selectedItem;
-  }, function () {
-    $log.info('Modal dismissed at: ' + new Date());
-  });
-};
   });
 }]);
 
@@ -105,21 +98,7 @@ timelineControllers.controller('DetailsController', ['$scope', '$http', '$routeP
     } else {
       $scope.nextItem = 0;
     }
-    var modalInstance = $modal.open({
-      url: '/details/:itemId',
-      templateUrl:'partials/details.html',
-      resolve: {
-        whichItem: function () {
-              return $scope.whichItem;
-              }
-    }
-      // controller:'ProfileModalCtrl'
-      // events:{
-      //   whichItem:function() {
-      //     return $scope.events;
-      //   }
-      // }
-      });
+
     // var myaudio = $('#audio1_1');
     // $('.audio1_1').css("border","3px solid yellow");
     // console.log('document', myaudio);
@@ -136,15 +115,14 @@ timelineControllers.controller('DetailsController', ['$scope', '$http', '$routeP
   });
 }]);
 
-timelineControllers.controller('ProfileModalCtrl',function($scope, $modal, events){
-  $scope.events = events;
-  $scope.cancel = function () {
-    $uibModalInstance.dismiss('cancel');
-  };
-});
+// timelineControllers.controller('ProfileModalCtrl',function($scope, $modal, events){
+//   $scope.events = events;
+//   $scope.cancel = function () {
+//     $uibModalInstance.dismiss('cancel');
+//   };
+// });
 
 timelineControllers.controller('tabcontrol',function(){
-
   $('.chap-title').hide();
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
@@ -160,5 +138,4 @@ timelineControllers.controller('tabcontrol',function(){
           $(".chap-title").hide();
         }
     });
-
 });

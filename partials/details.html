@@ -5,16 +5,14 @@
 </div>
 
 <section>
-  <div class="modal-body">
-  <div class="details" ng-model="events">
+  <div class="modal-body" ng-repeat="item in events | filter:{id:whichItem}">
+  <div class="details">
     <audio autoplay="autoplay" controls="controls" class="audio1_1" ng-src="{{events[whichItem].audio}}" onended="endaudio()">
     </audio>
-
-    <div audio options="options" />
-    <dv class="info">
-      <h3>{{events[whichItem].description}}</h3>
-        <p>{{events[whichItem].details }}</p>
-      <img ng-src="img/{{events[whichItem].images[0]}}" alt="Photo of {{events[whichItem].title}}">
+    <div class="info">
+      <h3>{{item.description}}</h3>
+        <p>{{item.details }}</p>
+      <img ng-src="img/{{item.images}}" alt="Photo of {{events[whichItem].title}}">
 
       <!-- <video autoplay="autoplay" controls="controls" class="video1_1" ng-src=" {{events[whichItem].images}}">
       </video> -->

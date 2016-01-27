@@ -12,9 +12,11 @@
     <li class="timeline-each hori-scroll hideme" ng-repeat="item in events | orderBy: date" ng-click="selectItem(item)" ng-class="{activecard:item.selected}">
       <!--href="#/details/{{events.indexOf(item)}}" -->
       <div class="left-timeline">
-        <h2>{{item.title}}</h2>
-        <h3>{{item.era}}</h3>
-        <p>{{item.description | limitTo:letterLimit}}</p>
+        <h1>{{item.title}}</h1>
+        <h3 >{{item.era}}</h3>
+        <p class="timeline_descp">{{item.description}}
+          {{item.description.length > 80 ? '&hellip;': ''}} </p>
+
         <audio controls="controls" class="audio1_1" ng-src="media/scene1/audio/1.mp3" onended="endaudio()">
         </audio>
       </div>
@@ -25,15 +27,10 @@
 
     </li>
   </ul>
-  <audio autoplay="" controls="" loop="" preload="" class="background-mvc">
+  <!-- <audio autoplay="" controls="" loop="" preload="" class="background-mvc">
     <source src="media/scene1/bgm/001.mp3" type="audio/mpeg">
     <source src="media/scene1/bgm/001.ogg" type="audio/ogg">
     <source src="media/scene1/bgm/001.wav" type="audio/wav">
    Your browser does not support the audio element.
-  </audio>
+  </audio> -->
 </section>
-<!-- <script>
-$( ".timeline-line" ).click(function() {
-  $('.timeline-node').addClass("active");
-});
-</script> -->

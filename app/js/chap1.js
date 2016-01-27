@@ -22,6 +22,7 @@ timelineControllers.controller('timelineController', ['$scope', '$http', functio
             }
           }
 	     }
+
   var $node = $('.timeline-node');
   // var top = $node.position().top;
   // $('.scene-title-box').line(bottom + 20,140,200,400, {color:"red", style: "solid"});
@@ -29,32 +30,34 @@ timelineControllers.controller('timelineController', ['$scope', '$http', functio
 }]);
 
 //chapter 2 scroll
-timelineControllers.controller('Chap2Controller', ['$scope', '$http', function($scope, $http, $uibModal, $log) {
+timelineControllers.controller('Chap2Controller', ['$scope', '$http', '$state',function($scope, $http, $uibModal, $log, $state) {
   $http.get('source/chap2-scroll.json').success(function(data) {
     $scope.events = data;
     $scope.letterLimit = 100;
     $scope.animationsEnabled = true;
+    $scope.whichartist=$state.params.aId;
     document.body.style.width = '7700px';
   });
 }]);
 
 //details controller
-timelineControllers.controller('DetailsController', ['$scope', '$http', '$routeParams','$modal', function($scope, $http, $routeParams, $modal) {
-    $http.get('source/timeline.json').success(function(data) {
+timelineControllers.controller('DetailsController', ['$scope', '$http', '$state',function($scope, $http, $state) {
+    $http.get('source/chap2-scroll.json').success(function(data) {
 
     $scope.events = data;
-    $scope.whichItem = $routeParams.itemId;
+    // $scope.whichItem = $routeParams.itemId;
+    $scope.whichItem=$state.params.itemId;
 
-    if ($routeParams.itemId > 0){
-      $scope.prevItem = Number($routeParams.itemId) -1;
-    } else {
-      $scope.prevItem = $scope.events.length -1;
-    }
-    if ($routeParams.itemId < $scope.events.length -1){
-      $scope.nextItem = Number($routeParams.itemId) +1;
-    } else {
-      $scope.nextItem = 0;
-    }
+    // if ($routeParams.itemId > 0){
+    //   $scope.prevItem = Number($routeParams.itemId) -1;
+    // } else {
+    //   $scope.prevItem = $scope.events.length -1;
+    // }
+    // if ($routeParams.itemId < $scope.events.length -1){
+    //   $scope.nextItem = Number($routeParams.itemId) +1;
+    // } else {
+    //   $scope.nextItem = 0;
+    // }
 
     // var myaudio = $('#audio1_1');
     // $('.audio1_1').css("border","3px solid yellow");
