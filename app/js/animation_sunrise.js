@@ -84,7 +84,7 @@ $(document).ready(function() {
 	//
 	// var skyGradientNight = ['#05154d','#030005','#020005','#010005','#010005'];
 
-	var skyGradientNight = ['#ffeecc','#e5a8a8','#869cee','#509aee','#4988e5'];
+	var skyGradientNight = ['#fff','#F7DFA4','#aae8f7','#509aee','#4988e5'];
 
 	var skyGradientEvening = ['#05257d','#03287d','#02389d','#0247c6','#015cc9'];
 
@@ -114,57 +114,99 @@ $(document).ready(function() {
 	});
 
 	$('#Hills_in_Distance_1 path').velocity({
-		fill: '#1a2b20'
+		fill: '#F3E1CF'
 	},{
 		easing:'linear',
-		delay:1000,
+		delay:900,
 		duration:5500
 	});
 
 	$('#Hills_in_Distance_2 path').velocity({
-		fill: '#44330E'
+		fill: '#A7B0B7'
 	},{
 		easing:'linear',
-		delay:1000,
+		delay:900,
 		duration:5500
 	});
 
-	$('#River_Background rect').velocity({
-		fill: '#000'
-	},{
-		easing:'linear',
-		delay:2000,
-		duration:2500
-	});
+    $('#backleft1 path').velocity({
+        fill: '#626458'
+    },{
+        easing:'linear',
+        delay:1400,
+        duration:4500
+    });
 
-	$('#Observatory path').velocity({
-		fill: 'XMLID_2_'
+    $('#backleft2 path').velocity({
+		fill: '#87897D'
 	},{
 		easing:'linear',
-		delay:2000,
-		duration:2500
+		delay:1400,
+		duration:4500
 	});
-
-	$('#Distant_Left_Ridge path').velocity({
-		fill: '#19130D'
+    $('#backright2 path').velocity({
+		fill: '#6E838E'
 	},{
 		easing:'linear',
-		delay:1000,
-		duration:550
+		delay:1900,
+		duration:3550
 	}).velocity({
-		fill: '#4C3325'
+		fill: '#868C6D'
 	},{
 		easing:'easeIn',
-		delay:1500,
+		delay:5500,
 		duration:2500
 	}).velocity({
-		fill: '#593F2A'
+		fill: '#B2B08A'
 	},{
-		easing:'linear',
-		duration:1000
+		easing:'easeIn',
+		delay:7500,
+		duration:2500
 	});
 
-	$('#Right_Ridge path').velocity({
+    $('#backright1 path').velocity({
+		fill: '#4C5F6A'
+	},{
+		easing:'linear',
+		delay:1900,
+		duration:3550
+	}).velocity({
+		fill: '#6E7256'
+	},{
+		easing:'easeIn',
+		delay:5500,
+		duration:2500
+	}).velocity({
+		fill: '#7A7C60'
+	},{
+		easing:'easeIn',
+		delay:7500,
+		duration:2500
+	});
+    $('#backmiddle path').velocity({
+		fill: '#384042'
+	},{
+		easing:'linear',
+		delay:1900,
+		duration:3550
+	});
+    $('#frontleft path').velocity({
+        fill: '#57562E'
+    },{
+        easing:'linear',
+        delay:1900,
+        duration:3550
+    });
+    $('#front path').velocity({
+        fill: '#272D0E'
+    },{
+        easing:'linear',
+        delay:1900,
+        duration:3550
+    });
+
+
+	$('#Distant_Left_Ridge path').velocity({
 		fill: '#19130D'
 	},{
 		easing:'linear',
@@ -237,7 +279,7 @@ $(document).ready(function() {
 	});
 
 	$('#Sun circle, #SVGID_2_').velocity({
-		cy: '-=200',
+		cy: '-=400',
 		cx: '+=400'
 	},{
 		easing:'easeOut',

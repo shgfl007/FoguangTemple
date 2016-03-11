@@ -6,9 +6,14 @@ $color-blue: #7CD0FF;
 $color-black: #050505;
 $color-paper: #DED8D4;
 $color-grey:#606060;
+.vertical-middle {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
 
 html {
-  background-color: $color-paper;
+    background-color: $color-paper;
 }
 
 body {
@@ -16,11 +21,11 @@ body {
   max-height: 100vh;
   overflow-y: hidden;
   overflow-x:scroll;
+  margin:-8px;
   @extend .fadein;
 }
 
 body::after {
-  background: url("../../img/layout/slide-bg.png");
   content: "";
   opacity: 0.4;
   top: 0;
@@ -42,7 +47,15 @@ display: inline-block;
 .black-bg{
      background-color: rgba(0, 0, 0, .4);
 }
-
+#texture {
+    background: url("../../img/layout/slide-bg1.png");
+    height:100vh;
+    z-index: 0;
+    position:absolute;
+    top:0px;
+    left:0px;
+    pointer-events: none;
+}
 // .active {
 //   background-color: $color-orange;
 // }
@@ -65,43 +78,74 @@ display: inline-block;
 }
 @font-face {
   font-family: 'HanWangWCL06';
-  src: local('HanWangWCL06.woff'),
-  url('../../source/font/HanWangWCL06.woff') format('woff');
+  src: local('wcl06.otf'),
+  url('../../source/font/wcl06.otf') format('otf');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-   font-family: 'fontAwesome';
-   src: local('fontAwesome.otf'),
-   url('../../source/font/fontAwesome.otf');
+   font-family: 'cwTeXFangSong';
+   src: local('cwTeXFangSong.ttf'),
+   url('@import url(../../source/font/wt024.ttf);');
 }
 
 h1, h2 {
   font-family: 'titleFont', Helvetica, Arial, sans-serif;
 }
 
-p{
-  font-family:'Arial',Helvetica;
+p,li{
+  font-family:'HanWangWCL06',times;
+  font-weight:normal;
+  font-size: 12pt;
 }
 
 h3, h4, h5 {
-  font-size: 1.5em;
+    font-family:'HanWangWCL06',Helvetica;
+    font-weight:700;
+    font-size: 1.6em;
 }
 /* all chapters introduction page */
-
+.main-intro{
+    top:50%;
+    left:50%;
+    width:auto;
+    height:auto;
+    min-height: 50%;
+    button {
+        height: 40px;
+        position: absolute;
+        margin: auto;
+        top: 40vh;
+        left: 50%;
+        right: 50%;
+        bottom: 0;
+    }
+}
 .sunrise-intro {
   top: 50%;
   left: 24%;
   width: auto;
   height: auto;
-  max-width: 35%;
-  min-height: 50%;
+  max-width: 25%;
+  min-width: 260px;
+  min-height: 45%;
   text-align:center;
    line-height: 2.0em;
    position: fixed;
+   color:$color-paper;
+   padding:50px;
+  position: fixed;
    -webkit-transform: translateX(-50%) translateY(-50%);
    transform: translateX(-50%) translateY(-50%);
+   background-color: rgba(0,0,0,0.7);
+   z-index:90000;
+   button{
+       position: absolute;
+       bottom: 0;
+       margin-bottom:40px;
+       margin-left:-10%;
+   }
 }
 
 button, btn {
@@ -120,10 +164,15 @@ button, btn {
 }
 
 .intro-text {
-  padding:30px 30px 0 30px;
-  max-width: 600px;
-  color:white;
+    padding:20px 20px 0 30px;
+    max-width: 600px;
+    color:white;
+  position: relative;
+  p{
+      min-width: 300px !important;
+  }
 }
+.line{ margin-left: 100%; overflow:hidden;height:30px;}
 
 .logo {
   background: url(img/logo/logos-04.svg) no-repeat top left;
@@ -133,12 +182,18 @@ button, btn {
 }
 
  .logo-property{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
    width:550px;
    height:230px;
    max-width: 670px;
-    -webkit-filter: drop-shadow(10px 10px 10px #222);
-    filter:         drop-shadow(10px 10px 10px #222);
+   display: block;
 }
+
 
 .no-svg .main-header {
   background-image: url(img/logo/logos-04.svg.png);
@@ -153,18 +208,17 @@ button, btn {
 }
 
 .scene-title-box {
-  margin: auto auto auto auto;
   padding-top:5px;
   color:$color-paper;
   background-color: $color-red;
   opacity:0.8;
-  top: 50%;
   left: 24%;
   width: auto;
   height: auto;
   max-width: 55%;
   min-height: 100%;
   text-align:center;
+  @extend .vertical-middle;
 }
 
 .scene-title-lgword{
@@ -173,7 +227,24 @@ button, btn {
     top: 50%;
     text-align:center;
 }
-
+.scene-sub-title{
+    width: 60px;
+    height: 90vh;
+    bottom:10vh;
+    letter-spacing: 16px;
+    margin-left:50px;
+    text-align:center;
+    overflow: hidden;
+    .sub-title-line{
+        height:auto;
+        width:40%;
+        min-height: 90px;
+        border-right:2px solid $color-grey;
+    }
+    h1 {
+            font-size: 2.2em;
+    }
+}
 .background-mvc{
   opacity: 0.3;
   width: 45px;
@@ -181,4 +252,44 @@ button, btn {
   position:absolute;
 
   left:100px;
+}
+.next-chap{
+    float:right;
+    top: 0;
+    width: 160px;
+    padding: 40px;
+    height: auto;
+h4{
+    margin-top:-15px;
+}
+    .arrow-right {
+    	width: 20px;
+    	height: 1px;
+    	border-top: 30px solid transparent;
+    	border-bottom: 30px solid transparent;
+    	border-left: 30px solid $color-grey;
+    }
+    ul{
+        list-style: none;
+    }
+    li{
+        display: inline;
+    }
+
+}
+
+.bg-responsive {
+	/* Set rules to fill background */
+	min-height: 100%;
+	min-width: 1024px;
+
+	/* Set up proportionate scaling */
+	width: 100%;
+	height: auto;
+
+	/* Set up positioning */
+	position: fixed;
+	top: 0;
+	left: 0;
+    z-index:999;
 }

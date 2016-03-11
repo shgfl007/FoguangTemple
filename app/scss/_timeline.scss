@@ -86,7 +86,7 @@
   box-shadow: 2px 4px 10px #A5A5A5;
   -webkit-transition: 0.5s; /* For Safari 3.1 to 6.0 */
   transition: 0.5s;
-  opacity:1;
+  opacity:1 !important;
   img {
     opacity:1;
     -webkit-filter: grayscale(0%);
@@ -100,7 +100,7 @@
 .activenode {
   @extend .all-active;
 }
-.activecard {
+.activecards {
   @extend .all-active;
   width: 60vw;
   .left-timeline{

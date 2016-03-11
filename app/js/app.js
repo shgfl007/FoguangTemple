@@ -41,9 +41,16 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
         controller:'Chap2Controller'
 
   })
+  //chapter 3
+    .state('tab.chap3', {
+      url:'/chap3',
+          templateUrl:'partials/chap3_scroll.html',
+          controller:'Chap3Controller'
+
+    })
 
   .state('tab.details', {
-        url: '/details/:aId',
+        url: '/list/:itemId',
             templateUrl: 'partials/details.html',
             controller:'DetailsController'
       })

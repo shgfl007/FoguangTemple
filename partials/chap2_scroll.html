@@ -1,23 +1,89 @@
 <section class="scroll-page">
-  <div class ="scene-title">
+  <div class ="scene-title fade-in title">
     <div class ="scene-title-box">
       <h3>第二章</h3>
       <h1 class="scene-title-lgword">梁思成｜發現佛光寺</h1>
   </div>
   </div>
-  <ul class="scroll-list">
-    <li class="scroll-each hori-scroll hideme" ng-repeat="item in events | orderBy: date">
+  <ul class="scroll-list fade-in content">
+      <li class ="hori-scroll scene-sub-title fade-in">
+          <div class="sub-title-line"></div>
+           <h1>營造學社成立背景</h1>
+      </li>
+      <div class="scroll-each hori-scroll hideme">
+          <audio controls id="audio_0">
+              <source ng-src="media/scene2/audio/001.mp3"></source>
+          </audio>
+          <div class="paragraph">
+         <p> 佛光寺東大殿是我國古建築
+     類文化遺産最珍貴的一處，
+     其自身的文物價值與其傳
+     奇的發現過程，對推動中國
+     建築史學的發展具有重大意
+     義。中國建築史學開端，發轫
+     <br><b>于一本書：《營造法式》，<br>一
+     個機構：中國營造學社，<br>一位
+     學者：梁思成</b>。</p></div>
+ </div>
+    <li class="scroll-each hori-scroll hideme" ng-repeat-start="item in events" ng-click="selectItem(item)" ng-class="{activechap:item.selected}">
+        <div class="left-chapscroll">
+            <audio controls class="narration" id="audio_{{item.id}}" onended="playAudio(0)"> 
+                <source ng-src="{{item.audio | trustUrl}}"></source>
+            </audio>
+            <h2 ng-if="$index == 0 || $index == 1|| $index == 2">{{item.title}}</h2>
+            <h3>{{item.era}}</h3>
+            <p>{{item.details | limitTo:letterLimit}} {{item.description.length > 80 ? '&hellip;': ''}}</p>
+          </div>
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+<!-- image carousel -->
+             <!-- Indicators -->
+             <ol class="carousel-indicators">
+               <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                 <li data-target="#carousel-example-generic" data-slide-to="2" ></li>
+             </ol>
 
-        <h2>{{item.title}}</h2>
-        <h3>{{item.era}}</h3>
-        <p>{{item.description | limitTo:letterLimit}}</p>
-        <p>{{item.details | limitTo:letterLimit}} ...</p>
+             <!-- Wrapper for slides -->
+             <div class="carousel-inner" role="listbox">
+               <div class="item active" ng-repeat="img in item.images">
+                 <img ng-src="dist/img/scene/{{img}}" alt="Photo of {{img}}">
+                 <div class="carousel-caption">
+                   {{img}}
+                 </div>
+               </div>
+             </div>
 
-      <a href="#/tab/details/{{item.id}}"">  <button type="button" class="btn btn-default" ng-click="open('lg')">Open me!</button></a>
+             <!-- Controls -->
+             <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+               <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+               <span class="sr-only"><</span>
+             </a>
+             <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+               <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+               <span class="sr-only">></span>
+             </a>
 
-      <!-- <a href="#/details/{{events.indexOf(item)}}">  -->
-        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Full Content</button> -->
+    </div>
     </li>
+    <li class ="hori-scroll scene-sub-title fade-in hideme" ng-if="$index == 5 || $index == 12|| $index == 13" ng-repeat-end>
+         <div class="sub-title-line"></div>
+         <h1>{{item.title}}</h1>
+    </li>
+    <a href ="#/tab/chap3">
+    <div class="next-chap">
+        <ul>
+        <li><p>下一章</p>
+        <h4>環繞東大殿</h4></li>
+        <li><div class="arrow-right"></div></li>
+    </ul>
+</div></a>
+<div id="bgm_section" ng-click="$index == 1">
+    <audio id="bgm1" controls>
+        <source src="media/scene2/bgm/001.mp3" type="audio/mp3">
+        <source src="media/scene2/bgm/001.ogg" type="audio/ogg">
+        <source src="media/scene2/bgm/001.wav" type="audio/wav">
+    </audio>
+</div>
   </ul>
 </section>
 
