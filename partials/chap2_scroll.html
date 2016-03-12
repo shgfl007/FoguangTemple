@@ -27,7 +27,7 @@
  </div>
     <li class="scroll-each hori-scroll hideme" ng-repeat-start="item in events" ng-click="selectItem(item)" ng-class="{activechap:item.selected}">
         <div class="left-chapscroll">
-            <audio controls class="narration" id="audio_{{item.id}}" onended="playAudio(0)"> 
+            <audio controls class="narration" id="audio_{{item.id}}"> 
                 <source ng-src="{{item.audio | trustUrl}}"></source>
             </audio>
             <h2 ng-if="$index == 0 || $index == 1|| $index == 2">{{item.title}}</h2>

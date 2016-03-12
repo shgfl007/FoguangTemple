@@ -54,7 +54,9 @@
 
 .sidebar-nav li {
     text-indent: 20px;
+    font-size: 25px;
     line-height: 40px;
+    line-height: 80px;
 }
 
 .sidebar-nav li a {
@@ -76,8 +78,6 @@
 
 .sidebar-nav > .sidebar-brand {
     height: 65px;
-    font-size: 18px;
-    line-height: 60px;
 }
 
 .sidebar-nav > .sidebar-brand a {
@@ -89,6 +89,9 @@
     background: none;
 }
 
+.sidebar-move {
+    margin-left: -33px;
+}
 /*@media(min-width:768px) {
     #wrapper {
         padding-left: 250px;

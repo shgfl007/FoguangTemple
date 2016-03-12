@@ -56,7 +56,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
       })
 });
 
-var timelineControllers = angular.module('timelineControllers', ['ui.bootstrap.dialog'])
+var timelineControllers = angular.module('timelineControllers', ['angular-carousel'])
 .filter('trustUrl', function ($sce) {
   return function(url) {
     return $sce.trustAsResourceUrl(url);
@@ -99,10 +99,18 @@ timelineControllers.controller('timelineController', ['$scope', '$http', functio
 timelineControllers.controller('Chap2Controller', ['$scope', '$http',function($scope, $http) {
   $http.get('source/chap2-scroll.json').success(function(data) {
     $scope.events = data;
+    $scope.first = data[0];
+
     // $scope.whichartist=$state.params.aId;
     document.body.style.width = '8500px';
     $('#texture').css('width','8500px');
 
+    var audio1 = document.getElementById("audio_0");
+    $("#audio_0").bind("load",function(){
+        console.log("Audio Loaded succesfully");
+    });
+
+    // when click on each item, expand the width
     $scope.selectItem = function(selectedItem){
         for(var i = 0; i < $scope.events.length; i++){
             var item = $scope.events[i];
@@ -117,8 +125,35 @@ timelineControllers.controller('Chap2Controller', ['$scope', '$http',function($s
             }
           }
          }
+
+    //only allow one audio at a time
+    $(".narration").on("play", function() {
+    $(".narration").not(this).each(function(index, audio) {
+        audio.pause();
+    });
+});
+
+    //auto play bgm
+
+
+    //auto play audio
+    var playaudio = (function(number){
+        var currentAudio = document.getElementById('audio_' + number);
+        currentAudio.load();
+        currentAudio.play();
+        console.log(number);
+    });
+
+        for(var i = 0; i < $scope.events.length; i++){
+            playaudio(i);
+        }
   });
+
 }]);
+
+$("#audio_0").on('ended',function(){
+alert("bsdfhjksf");
+});
 
 //chapter 3 scroll
 timelineControllers.controller('Chap3Controller', ['$scope', '$http',function($scope, $http) {

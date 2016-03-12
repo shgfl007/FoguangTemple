@@ -12,6 +12,7 @@ var timer,
             timer = setTimeout(displayLine,700);
         }
     }
+
 timer = setTimeout(displayLine,400);
 
 //timecard fade in on scroll animation
@@ -80,7 +81,7 @@ $( document ).ready(function() {
       window.attachEvent("onmousewheel", scrollHorizontally);
   }
   })();
-;});
+});
 
 /* ========================================================================
  * Bootstrap: carousel.js v3.3.6

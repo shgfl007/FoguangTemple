@@ -56,14 +56,16 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
       })
 });
 
-var timelineControllers = angular.module('timelineControllers', ['angular-carousel'])
+var timelineControllers = angular.module('timelineControllers', ['ui.bootstrap.dialog'])
 .filter('trustUrl', function ($sce) {
   return function(url) {
     return $sce.trustAsResourceUrl(url);
   };
 });
 
+///////////////////////////
 //chapter 1 timeline
+///////////////////////////
 timelineControllers.controller('timelineController', ['$scope', '$http', function($scope, $http) {
   $http.get('source/timeline.json').success(function(data) {
     $scope.events = data;
@@ -95,7 +97,9 @@ timelineControllers.controller('timelineController', ['$scope', '$http', functio
   });
 }]);
 
+///////////////////////////
 //chapter 2 scroll
+///////////////////////////
 timelineControllers.controller('Chap2Controller', ['$scope', '$http',function($scope, $http) {
   $http.get('source/chap2-scroll.json').success(function(data) {
     $scope.events = data;
@@ -127,14 +131,16 @@ timelineControllers.controller('Chap2Controller', ['$scope', '$http',function($s
          }
 
     //only allow one audio at a time
-    $(".narration").on("play", function() {
-    $(".narration").not(this).each(function(index, audio) {
-        audio.pause();
-    });
-});
+//     $(".narration").on("play", function() {
+//     $(".narration").not(this).each(function(index, audio) {
+//         audio.pause();
+//     });
+//      });
 
     //auto play bgm
-
+        var playbgm = document.getElementById('bgm1');
+        playbgm.load();
+        playbgm.play();
 
     //auto play audio
     var playaudio = (function(number){
@@ -149,13 +155,15 @@ timelineControllers.controller('Chap2Controller', ['$scope', '$http',function($s
         }
   });
 
+  // alert when audio is finished playing
+  $("#audio_0").on('ended',function(){
+      alert('sdfsgdsg');
+  });
 }]);
 
-$("#audio_0").on('ended',function(){
-alert("bsdfhjksf");
-});
-
+///////////////////////////
 //chapter 3 scroll
+///////////////////////////
 timelineControllers.controller('Chap3Controller', ['$scope', '$http',function($scope, $http) {
   $http.get('source/chap3-scroll.json').success(function(data) {
     $scope.events = data;
@@ -182,6 +190,9 @@ timelineControllers.controller('Chap3Controller', ['$scope', '$http',function($s
   });
 }]);
 
+///////////////////////////
+///////////////////////////
+
 timelineControllers.controller('Ctrl', function($scope, $window,$dialog) {
             $scope.open = function() {
                 var options = {
@@ -206,7 +217,10 @@ timelineControllers.controller('Ctrl', function($scope, $window,$dialog) {
                 dialog.close(result);
             };
         });
+
+///////////////////////////
 //details controller
+///////////////////////////
 timelineControllers.controller('DetailsController', ['$scope', '$http', '$state',function($scope, $http, $state, dialog) {
     $http.get('source/chap2-scroll.json').success(function(data) {
         $scope.events = data;
@@ -220,7 +234,9 @@ timelineControllers.controller('DetailsController', ['$scope', '$http', '$state'
   });
 }]);
 
-
+///////////////////////////
+//tab controller
+///////////////////////////
 timelineControllers.controller('tabcontrol',function(){
   $('.chap-title').hide();
     $("#menu-toggle").click(function(e) {
@@ -232,9 +248,11 @@ timelineControllers.controller('tabcontrol',function(){
         if(sidebarLen < 50){
           //  $(sidebar).css('border','3px solid red');
            $(".chap-title").show();
+          $("#sidebar-toggle").removeClass('sidebar-move');
         }
         if(sidebarLen > 50){
           $(".chap-title").hide();
+          $("#sidebar-toggle").addClass('sidebar-move');
         }
     });
 });
